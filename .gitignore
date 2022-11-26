@@ -1,0 +1,7 @@
+node_modules/
+data/
+.history
+
+
+# 隐私数据
+src/keysConfig.js

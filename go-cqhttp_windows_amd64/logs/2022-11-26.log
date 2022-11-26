@@ -1,0 +1,7 @@
+[2022-11-26 08:49:12] [WARNING]: Protocol -> device lock is disable. http api may fail. 
+[2022-11-26 08:55:29] [WARNING]: 监听反向WS Universal时出现错误: read tcp 127.0.0.1:51232->127.0.0.1:8001: wsarecv: An existing connection was forcibly closed by the remote host. 
+[2022-11-26 08:55:29] [WARNING]: 向反向WS Universal服务器推送 Event 时出现错误: write tcp 127.0.0.1:51232->127.0.0.1:8001: wsasend: An existing connection was forcibly closed by the remote host. 
+[2022-11-26 08:58:08] [WARNING]: 监听反向WS Universal时出现错误: read tcp 127.0.0.1:52673->127.0.0.1:8001: wsarecv: An existing connection was forcibly closed by the remote host. 
+[2022-11-26 08:58:09] [WARNING]: 向反向WS Universal服务器推送 Event 时出现错误: write tcp 127.0.0.1:52673->127.0.0.1:8001: wsasend: An existing connection was forcibly closed by the remote host. 
+[2022-11-26 09:04:59] [WARNING]: 监听反向WS Universal时出现错误: read tcp 127.0.0.1:53016->127.0.0.1:8001: wsarecv: An existing connection was forcibly closed by the remote host. 
+[2022-11-26 09:04:59] [WARNING]: 向反向WS Universal服务器推送 Event 时出现错误: write tcp 127.0.0.1:53016->127.0.0.1:8001: wsasend: An existing connection was forcibly closed by the remote host. 

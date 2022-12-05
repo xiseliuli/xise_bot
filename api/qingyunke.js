@@ -1,12 +1,13 @@
-import request from '../utils/request'
+const request = require('../utils/request')
 
-export function qingyunkeAI(params) {
+function qingyunkeAI(params) {
+  console.log("🚀 ~ file: qingyunke.js:4 ~ qingyunkeAI ~ params", params)
   // 编码
   // encodeURIComponent(msg)
   // 解码
   // decodeURIComponent(UrlEncode)
   
-  if (params.msg) params.msg = encodeURIComponent(msg)
+  if (params.msg) params.msg = encodeURIComponent(params.msg)
   return request({
     url: 'http://api.qingyunke.com/api.php',
     method: 'get',
@@ -16,4 +17,8 @@ export function qingyunkeAI(params) {
       ...params
     }
   })
+}
+
+module.exports = {
+  qingyunkeAI
 }

@@ -7,7 +7,7 @@ app.server(function(connection, type = 'connect') {
     app.connectionList.push(connection)
 
     connection.on('text', function(result) {
-      handleMessage(JSON.parse(result))
+      handleMessage(app, JSON.parse(result), connection)
     })
 
   } else if (type === 'close') {

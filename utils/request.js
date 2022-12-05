@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { tansParams } from "@/utils/utils";
+const axios = require('axios')
+const { tansParams } = require('../utils/utils')
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
@@ -36,4 +36,4 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+module.exports = service

@@ -1,4 +1,9 @@
 {
   "Host": "127.0.0.1",
-  "Port": "8001"
+  "Port": "8001",
+  "name": [
+    "夕色",
+    "夕色琉璃"
+  ],
+  "weatherToken": "ZyEeAl9IWgdxsbTJ"
 }

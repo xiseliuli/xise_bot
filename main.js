@@ -1,6 +1,17 @@
 const app = require('./views/app')
-const config = require('./config/config.json')
 const handleMessage = require('./utils/message')
+const yaml = require('js-yaml');
+const fs = require('fs');
+const Utils = require('./utils/utils')
+
+try {
+  const config = yaml.load(fs.readFileSync('./config/config.yml', 'utf8'))
+  config.name.sort((a, b) => b.length - a.length)
+  global.config = config
+  app.config = config
+} catch (e) {
+  console.log('加载配置文件有误', e);
+}
 
 app.server(function(connection, type = 'connect') {
   if (type === 'connect') {
@@ -19,6 +30,10 @@ app.server(function(connection, type = 'connect') {
       }
     }
   }
-}).listen(config.Port, config.Host, function() {
-  console.log(`websocket启动在 ${config.Host}:${config.Port}`)
+}).listen(global.config.Port, global.config.Host, function() {
+  console.log(`websocket启动在 ${global.config.Host}:${global.config.Port}`)
 })
+
+app.utils = (new Utils()).init(app)
+
+exports.company = app

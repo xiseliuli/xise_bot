@@ -1,0 +1,5 @@
+Host: 127.0.0.1
+Port: 2458
+name: ['夕色琉璃', '夕色']
+# 天气api
+weatherToken: 'ZyEeAl9IWgdxsbTJ'

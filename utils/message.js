@@ -1,4 +1,3 @@
-const { atme, removeName } = require('../utils/utils')
 function handleMessage (app, message, connection) {
   const { plugins } = app
   switch (message.post_type) {
@@ -15,28 +14,33 @@ function handleMessage (app, message, connection) {
           来自 ${message.group_id}
           ${message.sender.card}[${message.user_id}]： ${message.message}`)
       }
+      let flag = true
+      let isatme = false
       Object.keys(plugins).forEach(key => {
-        let flag = true
         if (key != 'qinkeyun') {
           const { cmd, functions } = plugins[key]
-          if (atme(message.message)) {
-            message.message = removeName(message.message)
+          if (app.utils.atme(message)) {
+            isatme = true
+            message.message = app.utils.removeName(message.message)
           }
           cmd.forEach((item, index) => {
             if (typeof item === 'string') {
-              item = new RegExp(`/^[${item}]$/`)
+              item = new RegExp(`^[${item}]$`)
+            } else {
+              item = new RegExp(item)
             }
-            if (item.test(message)) {
+            if (item.test(message.message)) {
               flag = false
               functions[index](connection, message)
               console.log('触发函数', key, item)
             }
           })
         }
-        if (flag) {
-          plugins.qinkeyun.functions[0](connection, message)
-        }
       })
+      if (isatme && flag) {
+        console.log('触发ai')
+        plugins.qinkeyun.functions[0](connection, message)
+      }
       break;
     case 'request':
       console.log('收到请求', message)

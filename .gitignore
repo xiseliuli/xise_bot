@@ -2,8 +2,8 @@ node_modules/
 data/
 .history
 go-cqhttp_windows_amd64
-
-
+log
+logs
 
 # 隐私数据
 src/keysConfig.js

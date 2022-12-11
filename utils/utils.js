@@ -83,9 +83,10 @@ class Utils {
    */
   removeName (message = '') {
     for(let i = 0; i < this.app.config.name.length; i++) {
-      if ((new RegExp(`^${this.app.config.name[i]}`)).test(message)) {
-        message.replace(`^${this.app.config.name[i]}`, '')
-        break
+      const reg = new RegExp(`^${this.app.config.name[i]}`)
+      if (reg.test(message)) {
+        console.log('🚀 ~ file: utils.js:89 ~ Utils ~ removeName ~ me', message.replace(reg, ''))
+        return message.replace(reg, '')
       }
     }
     return message

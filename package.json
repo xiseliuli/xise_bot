@@ -12,6 +12,7 @@
 	"dependencies": {
 		"axios": "^1.2.0",
 		"js-yaml": "^4.1.0",
-		"nodejs-websocket": "^1.7.2"
+		"nodejs-websocket": "^1.7.2",
+		"openai": "^3.1.0"
 	}
 }

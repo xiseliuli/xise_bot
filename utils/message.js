@@ -17,11 +17,12 @@ function handleMessage (app, message, connection) {
       let flag = true
       let isatme = false
       Object.keys(plugins).forEach(key => {
-        if (key != 'qinkeyun') {
+        if (!['qinkeyun'].includes(key)) {
           const { cmd, functions } = plugins[key]
+          let msg = message.message
           if (app.utils.atme(message)) {
             isatme = true
-            message.message = app.utils.removeName(message.message)
+            msg = app.utils.removeName(msg)
           }
           cmd.forEach((item, index) => {
             if (typeof item === 'string') {
@@ -29,7 +30,7 @@ function handleMessage (app, message, connection) {
             } else {
               item = new RegExp(item)
             }
-            if (item.test(message.message)) {
+            if (item.test(msg)) {
               flag = false
               functions[index](connection, message)
               console.log('触发函数', key, item)
@@ -39,7 +40,10 @@ function handleMessage (app, message, connection) {
       })
       if (isatme && flag) {
         console.log('触发ai')
-        plugins.qinkeyun.functions[0](connection, message)
+        if (app.utils.atme(message)) {
+          message.message = app.utils.removeName(message.message)
+        }
+        plugins.openAi.functions[0](connection, message)
       }
       break;
     case 'request':

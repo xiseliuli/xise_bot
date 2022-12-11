@@ -3,3 +3,4 @@ Port: 2458
 name: ['夕色琉璃', '夕色']
 # 天气api
 weatherToken: 'ZyEeAl9IWgdxsbTJ'
+openAIKey: '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'

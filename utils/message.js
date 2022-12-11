@@ -33,7 +33,7 @@ function handleMessage (app, message, connection) {
             if (item.test(msg)) {
               flag = false
               functions[index](connection, message)
-              console.log('触发函数', key, item)
+              console.log('触发函数', key, item, functions[index])
             }
           })
         }

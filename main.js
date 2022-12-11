@@ -1,17 +1,6 @@
 const app = require('./views/app')
 const handleMessage = require('./utils/message')
-const yaml = require('js-yaml');
-const fs = require('fs');
-const Utils = require('./utils/utils')
-
-try {
-  const config = yaml.load(fs.readFileSync('./config/config.yml', 'utf8'))
-  config.name.sort((a, b) => b.length - a.length)
-  global.config = config
-  app.config = config
-} catch (e) {
-  console.log('加载配置文件有误', e);
-}
+const { Utils } = require('./utils/utils')
 
 app.server(function(connection, type = 'connect') {
   if (type === 'connect') {
@@ -35,5 +24,4 @@ app.server(function(connection, type = 'connect') {
 })
 
 app.utils = (new Utils()).init(app)
-
 exports.company = app

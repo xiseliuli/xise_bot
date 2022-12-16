@@ -25,7 +25,7 @@ async function AI (conn, message) {
     msg = JSON.stringify({status: res.status, data: res.data})
   }
   console.log('🚀 ~ file: openAi.js:25 ~ AI ~ msg', msg)
-  msg = msg.replace(/^[/n,/n/n, \r, \r\r]/, '')
+  msg = msg.replace(/^[/n/n,/n,/r/r,/r,?/n/n,]/, '')
   msg = msg.replace(/^\s*/g, '');
 
   if (message.message_type === 'group') {
